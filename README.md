@@ -11,6 +11,7 @@ Our prediction successfully identified genes and pathways known to be associated
 
 ![Fig1](https://user-images.githubusercontent.com/14062661/132103710-29d3e762-5e4a-4c30-85d0-a3a086f9a131.jpeg)
 <p align="center">
+<img src="//user-images.githubusercontent.com/14062661/132103710-29d3e762-5e4a-4c30-85d0-a3a086f9a131.jpeg">
 ### Fig.1
 </p>
 
