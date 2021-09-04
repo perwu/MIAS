@@ -1,11 +1,17 @@
 # Prediction of Biomarkers and Therapeutic Combinations for Anti-PD-1 Immunotherapy Using The Global Gene Network Association
-Owing to a lack of response to the anti-PD1 therapy for most cancer patients, we developed a network approach to infer genes, pathways, and potential therapeutic combinations that are associated  with tumor response to anti-PD1. First, the network guilt-by-association method was used to calculate the association scores of genes with the MHC I genes in the network. 
+Owing to a lack of response to the anti-PD1 therapy for most cancer patients, we developed a network approach to infer genes, pathways, and potential therapeutic combinations that are associated  with tumor response to anti-PD1. 
+
+First, the network guilt-by-association method was used to calculate functional relatedness (hereafter termed MHC I association score) of each genes with the MHC I pathway genes (Fig. 1A). Pathways that enrich genes with high association scores would be associated with the anti-PD1 (Fig. 1A).
+
+Third, TCGA data was integrated with the top predicted genes to build up a signature-based response predictor of anti-PD1 for a specific cancer type.
 
 # MIAS
 Our prediction successfully identified genes and pathways known to be associated with anti-PD1, and was further validated by 6 CRISPR gene sets associated with tumor resistance to cytotoxic T cells and targets of the 36 compounds that have been tested in clinical trials for combination treatments with anti-PD1. Mapping drug target data to our top prediction also identified inhibitors that could potentially enhance tumor response to anti-PD1, such as inhibitors of CDK, GSK3B, and PTK2.
 
+<p align="center">
 ![Fig1](https://user-images.githubusercontent.com/14062661/132103710-29d3e762-5e4a-4c30-85d0-a3a086f9a131.jpeg)
-   ### Fig.1
+### Fig.1
+</p>
 
 
 
