@@ -1,6 +1,6 @@
 # MIAS
 Owing to a lack of response to the anti-PD1 therapy for most cancer patients, we developed a network approach to infer genes, pathways, and potential therapeutic combinations that are associated  with tumor response to anti-PD1.  Our prediction successfully identified genes and pathways known to be associated with anti-PD1, and was further validated by 6 CRISPR gene sets associated with tumor resistance to cytotoxic T cells and targets of the 36 compounds that have been tested in clinical trials for combination treatments with anti-PD1. Mapping drug target data to our top prediction also identified inhibitors that could potentially enhance tumor response to anti-PD1, such as inhibitors of CDK, GSK3B, and PTK2.
-
+We also reasoned that therapies that target some of the top genes and pathways in our prediction list may overcome resistance and broaden the clinical utility of anti-PD1 therapy. ![image](https://user-images.githubusercontent.com/14062661/132103223-8875cb57-ee37-4309-9526-a5b781834466.png)
 
 
 
