@@ -16,23 +16,11 @@ Our prediction successfully identified genes and pathways known to be associated
 >4. The scripts has been tested successfully on R 4.0.2 <br />
 
 # R codes for response prediciton using MIAS-IMPRES predictors
-We used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response respectively for pre- and on-treated SKCM patient samples using support vector machine (SVM). These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
+We used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
 
 
 
 
-
-
-We hypothesized that aberrations of any gene that are close to MHC class I genes in a gene network are likely to deregulate MHC I pathway and affect tumor response to anti-PD1. Second, pathways that enrich genes with high association scores would be associated with the anti-PD1. Third, TCGA data was integrated with the top predicted genes to build up a signature-based response predictor of anti-PD1 for a specific cancer type. Forth, the drug target data was mapped to the top predicted genes, whose expression are also significantly correlated with the immune score in a cancer type, to identify compounds that could enhance tumor response to anti-PD1.
-
-
-Integration of our MHC I-association prediction with TCGA transcriptomic data of a given cancer type can select signature genes for calculating the MIAS score to predict patient response to anti-PD1 of that cancer type. 
-
-
-
-
-
-the MHC I association immunoscore (MIAS) 
 
 
 
