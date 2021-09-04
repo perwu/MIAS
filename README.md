@@ -2,8 +2,11 @@
 Owing to a lack of response to the anti-PD1 therapy for most cancer patients, we developed a network approach to infer genes, pathways, and potential therapeutic combinations that are associated  with tumor response to anti-PD1. 
 
 First, the network guilt-by-association method was used to calculate functional relatedness (hereafter termed MHC I association score) of each genes with the MHC I pathway genes (Fig. 1A). Pathways that enrich genes with high association scores would be associated with the anti-PD1 (Fig. 1A).
+By leveraging gene expression data of samples from a cohort of cancer patients treated with anti-PD-1 therapy, we were able to identify genes and pathways that are associated with the anti-PD1 in a given cancer type (Fig. 1B). 
 
-Third, TCGA data was integrated with the top predicted genes to build up a signature-based response predictor of anti-PD1 for a specific cancer type.
+
+
+Third, TCGA transcriptomic data was integrated with the top predicted genes to select the gene signature and calculate the MHC I association immunoscore (MIAS) to predict patient response to anti-PD1 therapy for a given cancer type.
 
 ![Fig1](https://user-images.githubusercontent.com/14062661/132103710-29d3e762-5e4a-4c30-85d0-a3a086f9a131.jpeg)
 <p align="center">
