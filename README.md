@@ -1,6 +1,9 @@
 # MIAS
 Owing to a lack of response to the anti-PD1 therapy for most cancer patients, we developed a network approach to infer genes, pathways, and potential therapeutic combinations that are associated  with tumor response to anti-PD1.  Our prediction successfully identified genes and pathways known to be associated with anti-PD1, and was further validated by 6 CRISPR gene sets associated with tumor resistance to cytotoxic T cells and targets of the 36 compounds that have been tested in clinical trials for combination treatments with anti-PD1. Mapping drug target data to our top prediction also identified inhibitors that could potentially enhance tumor response to anti-PD1, such as inhibitors of CDK, GSK3B, and PTK2.
 
+[Fig.1.pdf](https://github.com/perwu/MIAS/files/7110260/Fig.1.pdf)
+
+
 We hypothesized that aberrations of any gene that are close to MHC class I genes in a gene network are likely to deregulate MHC I pathway and affect tumor response to anti-PD1. First, the network guilt-by-association method was used to calculate the association scores of genes with the MHC I genes in the network. Second, pathways that enrich genes with high association scores would be associated with the anti-PD1. Third, TCGA data was integrated with the top predicted genes to build up a signature-based response predictor of anti-PD1 for a specific cancer type. Forth, the drug target data was mapped to the top predicted genes, whose expression are also significantly correlated with the immune score in a cancer type, to identify compounds that could enhance tumor response to anti-PD1.
 
 
