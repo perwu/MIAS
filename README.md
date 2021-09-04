@@ -15,17 +15,11 @@ Our prediction successfully identified genes and pathways known to be associated
 >3. Run the R script, "Manuscript_Figures_Tables.r", from command line: R CMD BATCH Manuscript_Figures_Tables.r or, run the scripts in "Manuscript_Figures_Tables.r STEP BY STEP in R to generate the figures and tables in the manuscript.  <br />
 >4. The scripts has been tested successfully on R 4.0.2 <br />
 
-# R codes for response prediciton using MIAS-IMPRES predictors
+# R codes for response prediciton using trained MIAS-IMPRES predictors
 We used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
 
 
 
-
-
-
-
-
-# Anti-PD1 response predictors for melanoma patient samples 
 
 
 
