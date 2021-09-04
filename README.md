@@ -16,7 +16,7 @@ Our prediction successfully identified genes and pathways known to be associated
 >4. The scripts has been tested successfully on R 4.0.2 <br />
 
 # R codes for response prediciton using MIAS-IMPRES predictors
-We used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to training two predictors of anti-PD1 response respectively for pre- and on-treatment SKCM patient samples using support vector machine (SVM). The accruary rates of these two predictors calculated by the 10-fold cross validation were listed in Table S8???. These two predictors (available at https://github.com/perwu/MIAS) can help people to predict responses of SKCM patient samples using their transcriptomic data.![image](https://user-images.githubusercontent.com/14062661/132107074-bac2fe23-f7c2-48b5-ae42-d932805cd00f.png)
+We used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response respectively for pre- and on-treated SKCM patient samples using support vector machine (SVM). These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
 
 
 
