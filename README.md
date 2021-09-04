@@ -16,7 +16,7 @@ the MHC I association immunoscore (MIAS)
 >4. The scripts has been tested successfully on R 4.0.2 <br />
 
 
-# R codes of anti-PD1 response prediction for melanoma patient samples 
+# Anti-PD1 response predictors for melanoma patient samples 
 
 
 
