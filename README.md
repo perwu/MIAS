@@ -16,6 +16,7 @@ Our prediction successfully identified genes and pathways known to be associated
 >4. The scripts has been tested successfully on R 4.0.2 <br />
 
 # Response prediciton using trained MIAS-IMPRES predictors
+Our analysis also showed that the integration of the MIAS and IMPRES scores also have a better prediction performance than the two individual method (Fig. 6D in the manuscript). 
 We used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
 
 
