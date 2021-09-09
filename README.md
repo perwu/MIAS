@@ -18,6 +18,11 @@ Our prediction successfully identified genes and pathways known to be associated
 # Calcluate MIAS score
 Our analysis indicated that MIAS score can be a useful feature to build integrative machine-learning models for anti-PD1 response prediction. The following script help people to calculate the MIAS scores of the melanoma patient samples using their transcriptomic data.
 
+Install and load the require R packages
+> library(e1071)  #svm <br />
+> library(GSVA) <br />
+> source("MHC_functions.r") <br />
+
 First, load the selected SKCM signature genes for calculating MIAS scores (The signature genes were selected by integrative analysis of our MHC I-association prediction and TCGA SKCM transcriptomic data).
 > filein="./data/Table.S6_Immune_positive signature.xls"  <br />
 > DataM1 <- read.table(filein,sep="\t",header=T, quote="") <br />
@@ -31,7 +36,7 @@ Third, the MIAS scores of samples can be calculated using the signature (Signatu
 > MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX,Signatures_M)  <br />
 
 
-# Response prediciton using pre-trained predictors
+# Response prediciton using MIAS.IMPRES predictors
 Our analysis also showed that the integration of the MIAS and IMPRES scores also have a better prediction performance than the two individual method (Fig. 6D in the manuscript). 
 We thus used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
 
