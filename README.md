@@ -37,12 +37,11 @@ Load the selected SKCM signature genes for calculating MIAS scores (The signatur
 > Signatures_M<-NULL />
 > Signatures_M[[1]]=as.character(DataM1[[1]]) />
 
-
-Third, calculate MIAS and IMPRES Scores of the samples
-MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX.Pre,Signatures_M) 
-IMPRES_Score.Pre<-IMPRES.Score(DataM_EX.Pre)
-MIAS_Score.On<-MIAS.Score.GSVA(DataM_EX.On,Signatures_M) 
-IMPRES_Score.On<-IMPRES.Score(DataM_EX.On)
+Calculate MIAS and IMPRES Scores of the pre- and on-treatment samples
+> MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX.Pre,Signatures_M) />
+> IMPRES_Score.Pre<-IMPRES.Score(DataM_EX.Pre) />
+> MIAS_Score.On<-MIAS.Score.GSVA(DataM_EX.On,Signatures_M) />
+> IMPRES_Score.On<-IMPRES.Score(DataM_EX.On) />
 
 
 Third, response prediction of pre- and on-treament melenoma samples using the two predictors (MIAS.IMPRES.Classifier_Pre and MIAS.IMPRES.Classifier_On)
