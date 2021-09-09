@@ -18,21 +18,20 @@ Our prediction successfully identified genes and pathways known to be associated
 # Calcluate MIAS score
 Our analysis indicated that MIAS score can be a useful feature to build integrative machine-learning models for anti-PD1 response prediction. The following script help people to calculate the MIAS scores of the melanoma patient samples using their transcriptomic data.
 
-Install and load the require R packages
-> library(e1071)  #svm <br />
+First, Install and load the require R packages
 > library(GSVA) <br />
 > source("MHC_functions.r") <br />
 
-First, load the selected SKCM signature genes for calculating MIAS scores (The signature genes were selected by integrative analysis of our MHC I-association prediction and TCGA SKCM transcriptomic data).
+Second, load the selected SKCM signature genes for calculating MIAS scores (The signature genes were selected by integrative analysis of our MHC I-association prediction and TCGA SKCM transcriptomic data).
 > filein="./data/Table.S6_Immune_positive signature.xls"  <br />
 > DataM1 <- read.table(filein,sep="\t",header=T, quote="") <br />
 > Signatures_M<-NULL  <br />
 > Signatures_M[[1]]=as.character(DataM1[[1]])  <br />
 
-Second, load the gene expressio data of the melanoma patient samples for response prediction. The gene expression value should be calucated as transcripts per million (TPM) that normalize counts for library size and gene length. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
+Third, load the gene expressio data of the melanoma patient samples for response prediction. The gene expression value should be calucated as transcripts per million (TPM) that normalize counts for library size and gene length. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
 > load("./data/Example.Data_Riaz.2017.RData")	<br />
 
-Third, the MIAS scores of samples can be calculated using the signature (Signatures_M) and the gene expresison matrix (DataM_EX )
+Forth, the MIAS scores of samples can be calculated using the signature (Signatures_M) and the gene expresison matrix (DataM_EX )
 > MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX,Signatures_M)  <br />
 
 
@@ -57,7 +56,7 @@ Seperate data of pre- and on-treatment samples
 > DataM_EX.On<-DataM_EX[,which(PreOn=="On")]	<br />
 > Response.On<-Response[which(PreOn=="On")]	<br />
 
-Load the selected SKCM signature genes for calculating MIAS scores (The signature genes were selected by integrative analysis of our MHC I-association prediction and TCGA SKCM transcriptomic data).
+Load the selected SKCM signature genes for calculating MIAS scores.
 > filein="./data/Table.S6_Immune_positive signature.xls"  <br />
 > DataM1 <- read.table(filein,sep="\t",header=T, quote="") <br />
 > Signatures_M<-NULL  <br />
