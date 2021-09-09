@@ -24,7 +24,7 @@ Install and load the require R packages
 > library(GSVA) <br />
 > source("MHC_functions.r") <br />
 
-Load the data file containing the 4 pre-trained predictors: MIAS.Classifier_Pre,MIAS.Classifier_On, MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
+Load the data file containing the 2 pre-trained predictors: MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
 >load("./data/Response.Predictors_PD1_SKCM.RData") <br />
 
 Load the gene expressio data of the melanoma patient samples for response prediction. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
