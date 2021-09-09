@@ -19,11 +19,12 @@ Our prediction successfully identified genes and pathways known to be associated
 Our analysis also showed that the integration of the MIAS and IMPRES scores also have a better prediction performance than the two individual method (Fig. 6D in the manuscript). 
 We used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
 
-First, load the pre-trained predictors. There are four predictors: MIAS.Classifier_Pre,MIAS.Classifier_On, MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
+First, load the data file containing the 4 pre-trained predictors: MIAS.Classifier_Pre,MIAS.Classifier_On, MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
 >load("./data/Response.Predictors_PD1_SKCM.RData") <br />
 
-First, load the gene expressio data of the melanoma patient samples that. We here loaded the example dataset (Riaz, et al 2017)
-load("./data/Example.Data_Riaz.2017.RData")	# DataM_EX,Response,SampleNames,PreOn
+Second, load the gene expressio data of the melanoma patient samples for response prediction. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
+> load("./data/Example.Data_Riaz.2017.RData")	<br />
+
 
 
 # seperate pre- and on-treatment samples
