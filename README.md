@@ -23,7 +23,6 @@ Install and load the require R packages
 > library(e1071)  #svm <br />
 > library(GSVA) <br />
 
-
 Load the data file containing the 4 pre-trained predictors: MIAS.Classifier_Pre,MIAS.Classifier_On, MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
 >load("./data/Response.Predictors_PD1_SKCM.RData") <br />
 
@@ -48,15 +47,15 @@ Calculate the MIAS and IMPRES Scores of the pre- and on-treatment samples
 > MIAS_Score.On<-MIAS.Score.GSVA(DataM_EX.On,Signatures_M)  <br />
 > IMPRES_Score.On<-IMPRES.Score(DataM_EX.On)  <br />
 
-Do the response prediction of the samples using the pre-treatment predictor that were trained using both of MIAS and IMPRES scores (MIAS.IMPRES.Classifier_Pre)
-> data_set.Pre<-data.frame(MIAS=MIAS_Score.Pre,IMPRES=IMPRES_Score.Pre,Response=Response.Pre) <br />
-> prediction.Pre = predict(MIAS.IMPRES.Classifier_Pre, newdata = data_set.Pre[-3], probability =T)  <br />
-> response.probabilities.Pre<-attr(prediction.Pre,"probabilities")[,2]  <br />
-> cf = table(data_set.Pre[, 3], prediction.Pre)  <br />
-> accuracy.Pre = (cf[1,1] + cf[2,2]) / (cf[1,1] + cf[2,2] + cf[1,2] + cf[2,1])  <br />
-> accuracy.Pre  <br />
+Do the response prediction of the on-treatment samples using the on-treatment predictor that were trained using both of MIAS and IMPRES scores (MIAS.IMPRES.Classifier_On)
+> data_set.On<-data.frame(MIAS=MIAS_Score.On,IMPRES=IMPRES_Score.On,Response=Response.On) <br />
+> prediction.On = predict(MIAS.IMPRES.Classifier_On, newdata = data_set.On[-3], probability =T)  <br />
+> response.probabilities.On<-attr(prediction.On,"probabilities")[,2]  <br />
+> cf = table(data_set.On[, 3], prediction.On)  <br />
+> accuracy.On = (cf[1,1] + cf[2,2]) / (cf[1,1] + cf[2,2] + cf[1,2] + cf[2,1])  <br />
+> accuracy.On  <br />
 
-
+We can also do the response prediction of the pre-treatment samples using the pre-treatment predictor (the script was not listed here)
 
 
 
