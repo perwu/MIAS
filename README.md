@@ -19,19 +19,39 @@ Our prediction successfully identified genes and pathways known to be associated
 Our analysis also showed that the integration of the MIAS and IMPRES scores also have a better prediction performance than the two individual method (Fig. 6D in the manuscript). 
 We used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
 
-First, load the data file containing the 4 pre-trained predictors: MIAS.Classifier_Pre,MIAS.Classifier_On, MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
+Load the data file containing the 4 pre-trained predictors: MIAS.Classifier_Pre,MIAS.Classifier_On, MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
 >load("./data/Response.Predictors_PD1_SKCM.RData") <br />
 
-Second, load the gene expressio data of the melanoma patient samples for response prediction. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
+Load the gene expressio data of the melanoma patient samples for response prediction. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
 > load("./data/Example.Data_Riaz.2017.RData")	<br />
 
-Then, seperate pre- and on-treatment samples
+Seperate data of pre- and on-treatment samples
 > DataM_EX.Pre<-DataM_EX[,which(PreOn=="Pre")]	<br />
 > Response.Pre<-Response[which(PreOn=="Pre")]	<br />
 > DataM_EX.On<-DataM_EX[,which(PreOn=="On")]	<br />
 > Response.On<-Response[which(PreOn=="On")]	<br />
 
+Load the selected SKCM signature genes for calculating MIAS scores (The signature genes were selected by integrative analysis of our MHC I-association prediction and TCGA SKCM transcriptomic data).
+> filein="./data/Table.S6_Immune_positive signature.xls" />
+> DataM1 <- read.table(filein,sep="\t",header=T, quote="") />
+> Signatures_M<-NULL />
+> Signatures_M[[1]]=as.character(DataM1[[1]]) />
 
+
+Third, calculate MIAS and IMPRES Scores of the samples
+MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX.Pre,Signatures_M) 
+IMPRES_Score.Pre<-IMPRES.Score(DataM_EX.Pre)
+MIAS_Score.On<-MIAS.Score.GSVA(DataM_EX.On,Signatures_M) 
+IMPRES_Score.On<-IMPRES.Score(DataM_EX.On)
+
+
+Third, response prediction of pre- and on-treament melenoma samples using the two predictors (MIAS.IMPRES.Classifier_Pre and MIAS.IMPRES.Classifier_On)
+data_set.Pre<-data.frame(MIAS=MIAS_Score.Pre,IMPRES=IMPRES_Score.Pre,Response=Response.Pre)
+prediction.Pre = predict(MIAS.IMPRES.Classifier_Pre, newdata = data_set.Pre[-3], probability =T)
+response.probabilities.Pre<-attr(prediction.Pre,"probabilities")[,2] 
+cf = table(data_set.Pre[, 3], prediction.Pre)
+accuracy.Pre = (cf[1,1] + cf[2,2]) / (cf[1,1] + cf[2,2] + cf[1,2] + cf[2,1])
+accuracy.Pre
 
 
 
