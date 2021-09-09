@@ -27,7 +27,7 @@ First, load the selected SKCM signature genes for calculating MIAS scores (The s
 Second, load the gene expressio data of the melanoma patient samples for response prediction. The gene expression value should be calucated as transcripts per million (TPM) that normalize counts for library size and gene length. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
 > load("./data/Example.Data_Riaz.2017.RData")	<br />
 
-Third, calculate the MIAS scores of samples using the signature (Signatures_M) and the gene expresison of sample (DataM_EX )
+Third, the MIAS scores of samples can be calculated using the signature (Signatures_M) and the gene expresison matrix (DataM_EX )
 > MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX,Signatures_M)  <br />
 
 
