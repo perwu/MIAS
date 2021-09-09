@@ -47,7 +47,7 @@ Calculate the MIAS and IMPRES Scores of the pre- and on-treatment samples
 > MIAS_Score.On<-MIAS.Score.GSVA(DataM_EX.On,Signatures_M)  <br />
 > IMPRES_Score.On<-IMPRES.Score(DataM_EX.On)  <br />
 
-Do the response prediction of the on-treatment samples using the on-treatment predictor that were trained using both of MIAS and IMPRES scores (MIAS.IMPRES.Classifier_On)
+Do the response prediction of the on-treatment samples using the on-treatment predictor that were trained using both of MIAS and IMPRES scores (MIAS.IMPRES.Classifier_On).
 > data_set.On<-data.frame(MIAS=MIAS_Score.On,IMPRES=IMPRES_Score.On,Response=Response.On) <br />
 > prediction.On = predict(MIAS.IMPRES.Classifier_On, newdata = data_set.On[-3], probability =T)  <br />
 > response.probabilities.On<-attr(prediction.On,"probabilities")[,2]  <br />
@@ -55,7 +55,7 @@ Do the response prediction of the on-treatment samples using the on-treatment pr
 > accuracy.On = (cf[1,1] + cf[2,2]) / (cf[1,1] + cf[2,2] + cf[1,2] + cf[2,1])  <br />
 > accuracy.On  <br />
 
-We can also do the response prediction of the pre-treatment samples using the pre-treatment predictor (the script was not listed here)
+We can also do the response prediction of the pre-treatment samples using the pre-treatment predictor (the script was not listed here).
 
 
 
