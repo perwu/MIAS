@@ -22,6 +22,7 @@ We used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4"
 Install and load the require R packages
 > library(e1071)  #svm <br />
 > library(GSVA) <br />
+> source("MHC_functions.r") <br />
 
 Load the data file containing the 4 pre-trained predictors: MIAS.Classifier_Pre,MIAS.Classifier_On, MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
 >load("./data/Response.Predictors_PD1_SKCM.RData") <br />
