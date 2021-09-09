@@ -25,15 +25,11 @@ First, load the data file containing the 4 pre-trained predictors: MIAS.Classifi
 Second, load the gene expressio data of the melanoma patient samples for response prediction. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
 > load("./data/Example.Data_Riaz.2017.RData")	<br />
 
-
-
-# seperate pre- and on-treatment samples
-pos1<-which(PreOn=="Pre")
-DataM_EX.Pre<-DataM_EX[,pos1]
-Response.Pre<-Response[pos1]
-pos2<-which(PreOn=="On")
-DataM_EX.On<-DataM_EX[,pos2]
-Response.On<-Response[pos2]
+Then, seperate pre- and on-treatment samples
+> DataM_EX.Pre<-DataM_EX[,which(PreOn=="Pre")]	<br />
+> Response.Pre<-Response[which(PreOn=="Pre")]	<br />
+> DataM_EX.On<-DataM_EX[,which(PreOn=="On")]	<br />
+> Response.On<-Response[which(PreOn=="On")]	<br />
 
 
 
