@@ -8,14 +8,7 @@ Owing to a lack of response to the anti-PD1 therapy for most cancer patients, we
 
 Our prediction successfully identified genes and pathways known to be associated with anti-PD1, and was further validated by 6 CRISPR gene sets associated with tumor resistance to cytotoxic T cells and targets of the 36 compounds that have been tested in clinical trials for combination treatments with anti-PD1. Mapping drug target data to our top MHC I-associated genes also identified inhibitors that could potentially enhance tumor response to anti-PD1, such as inhibitors of CDK, GSK3B, and PTK2. The MIAS score showed a good correlation with patient response to anti-PD1 for 411 melanoma samples complied from 6 cohorts. 
 
-
-# R codes for figures and tables of the manuscript: 
->1. Download the "MHC_Asso.zip" file to your computer. After unzipping the "MHC_Asso.zip", navigate to the extension folder, "MHC_Asso", and set it as the working directory in R. <br />
->2. Install the required R packages: FusionPathway, fgsea, gplots, ggplot2, gridExtra, reshape2, GeneOverlap, igraph, MASS, RColorBrewer, gridExtra, stringr, e1071, caret, and GSVA(see "Manuscript_Figures_Tables.r") <br />
->3. Run the R script, "Manuscript_Figures_Tables.r", from command line: R CMD BATCH Manuscript_Figures_Tables.r or, run the scripts in "Manuscript_Figures_Tables.r STEP BY STEP in R to generate the figures and tables in the manuscript.  <br />
->4. The scripts has been tested successfully on R 4.0.2 <br />
-
-# Calcluate the MIAS score
+# Calcluate the MHC I association immunoscore (MIAS) score
 Our analysis indicated that MIAS score can be a useful feature to build integrative machine-learning models for anti-PD1 response prediction. The following script help people to calculate the MIAS scores of the melanoma patient samples using their transcriptomic data.
 
 1. Install and load the require R packages and scripts
@@ -45,10 +38,9 @@ Our analysis indicated that MIAS score can be a useful feature to build integrat
 > print(Wilcox.pval) 	<br />
 
 
-
 # Response prediciton using MIAS.IMPRES predictors
-Our analysis also showed that the integration of the MIAS and IMPRES scores also have a better prediction performance than the two individual method (Fig. 6D in the manuscript). 
-We thus used the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES </a> scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
+Our analysis also showed that the integration of the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES</a> scores also have a better prediction performance than the two individual method (Fig. 6D in the manuscript). 
+We thus used the MIAS and IMPRES scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
 
 Install and load the require R packages
 > library(e1071)  #svm <br />
