@@ -27,7 +27,7 @@ Our analysis indicated that MIAS score can be a useful feature to build integrat
 4. the MIAS scores of samples can be calculated using the signature (Signatures_M) and the gene expresison matrix (DataM_EX )
 > MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX,Signatures_M)  <br />
 
-5. Quantify the correlation between the MIAS score and patient response using the AUC value of the ROC curve and Wilcox test
+5. Quantify the correlation between the MIAS score and patient response using the AUC value of the ROC curve and Wilcox test (only appicable to samples with response data)
 > outcome=rep(1,length(MIAS_Score)) <br />
 > outcome[which(Response=="NR")]=0 	<br />
 > ROC<-ROCF(outcome,MIAS_Score) 	<br />
