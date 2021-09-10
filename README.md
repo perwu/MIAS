@@ -42,40 +42,40 @@ Our analysis indicated that MIAS score can be a useful feature to build integrat
 Our analysis also showed that the integration of the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES</a> scores also have a better prediction performance than the two individual method (Fig. 6D in the manuscript). 
 We thus used the MIAS and IMPRES scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples directly using their transcriptomic data.
 
-Install and load the require R packages
+1. Install and load the require R packages
 > library(e1071)  #svm <br />
 > library(GSVA) <br />
 > source("MHC_functions.r") <br />
 
-Load the data file containing the 2 pre-trained predictors: MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
+2. Load the data file containing the 2 pre-trained predictors: MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
 >load("./data/Response.Predictors_PD1_SKCM.RData") <br />
 
-Load the gene expressio data of the melanoma patient samples for response prediction. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
+3. Load the gene expressio data of the melanoma patient samples for response prediction. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
 > load("./data/Example.Data_Riaz.2017.RData")	<br />
 
-Seperate data of pre- and on-treatment samples
+4. Seperate data of pre- and on-treatment samples
 > DataM_EX.Pre<-DataM_EX[,which(PreOn=="Pre")]  <br />
 > Response.Pre<-Response[which(PreOn=="Pre")]	<br />
 > DataM_EX.On<-DataM_EX[,which(PreOn=="On")]	<br />
 > Response.On<-Response[which(PreOn=="On")]	<br />
 
-Load the selected SKCM signature genes for calculating MIAS scores.
+5. Load the selected SKCM signature genes for calculating MIAS scores.
 > filein="./data/Table.S6_Immune_positive signature.xls"  <br />
 > DataM1 <- read.table(filein,sep="\t",header=T, quote="") <br />
 > Signatures_M<-NULL  <br />
 > Signatures_M[[1]]=as.character(DataM1[[1]])  <br />
 
-Calculate the MIAS and IMPRES Scores of the pre- and on-treatment samples
+6. Calculate the MIAS and IMPRES Scores of the pre- and on-treatment samples
 > MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX.Pre,Signatures_M)  <br />
 > IMPRES_Score.Pre<-IMPRES.Score(DataM_EX.Pre)  <br />
 > MIAS_Score.On<-MIAS.Score.GSVA(DataM_EX.On,Signatures_M)  <br />
 > IMPRES_Score.On<-IMPRES.Score(DataM_EX.On)  <br />
 
-Do the response prediction of the on-treatment samples using the on-treatment predictor that were trained using both of MIAS and IMPRES scores (MIAS.IMPRES.Classifier_On).
+7. Do the response prediction of the on-treatment samples using the on-treatment predictor that were trained using both of MIAS and IMPRES scores (MIAS.IMPRES.Classifier_On).
 > data_set.On<-data.frame(MIAS=MIAS_Score.On,IMPRES=IMPRES_Score.On,Response=Response.On) <br />
 > prediction.On = predict(MIAS.IMPRES.Classifier_On, newdata = data_set.On[-3], probability =T)  <br />
 
-Print out the predicted patient response
+8. Print out the predicted patient response
 > print (prediction.On) <br />
 
 We can also do the response prediction of the pre-treatment samples using the pre-treatment predictor (the script was not listed here).
