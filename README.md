@@ -27,7 +27,7 @@ Our analysis indicated that MIAS score can be a useful feature to build integrat
 4. the MIAS scores of samples can be calculated using the signature (Signatures_M) and the gene expresison matrix (DataM_EX )
 > MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX,Signatures_M)  <br />
 
-5. Quantify the association between the MIAS score and patient response using the AUC value of the ROC curve and Wilcox test
+5. Quantify the correlation between the MIAS score and patient response using the AUC value of the ROC curve and Wilcox test ()
 > outcome=rep(1,length(MIAS_Score)) <br />
 > outcome[which(Response=="NR")]=0 	<br />
 > ROC<-ROCF(outcome,MIAS_Score) 	<br />
@@ -40,7 +40,7 @@ Our analysis indicated that MIAS score can be a useful feature to build integrat
 
 # Response prediciton using MIAS.IMPRES predictors
 Our analysis also showed that the integration of the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES</a> scores also have a better prediction performance than the two individual method (Fig. 6D in the manuscript). 
-We thus used the MIAS and IMPRES scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples using their transcriptomic data.
+We thus used the MIAS and IMPRES scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples directly using their transcriptomic data.
 
 Install and load the require R packages
 > library(e1071)  #svm <br />
@@ -74,10 +74,9 @@ Calculate the MIAS and IMPRES Scores of the pre- and on-treatment samples
 Do the response prediction of the on-treatment samples using the on-treatment predictor that were trained using both of MIAS and IMPRES scores (MIAS.IMPRES.Classifier_On).
 > data_set.On<-data.frame(MIAS=MIAS_Score.On,IMPRES=IMPRES_Score.On,Response=Response.On) <br />
 > prediction.On = predict(MIAS.IMPRES.Classifier_On, newdata = data_set.On[-3], probability =T)  <br />
-> response.probabilities.On<-attr(prediction.On,"probabilities")[,2]  <br />
-> cf = table(data_set.On[, 3], prediction.On)  <br />
-> accuracy.On = (cf[1,1] + cf[2,2]) / (cf[1,1] + cf[2,2] + cf[1,2] + cf[2,1])  <br />
-> accuracy.On  <br />
+
+Print out the predicted patient response
+> print (prediction.On) <br />
 
 We can also do the response prediction of the pre-treatment samples using the pre-treatment predictor (the script was not listed here).
 
