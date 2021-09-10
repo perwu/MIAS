@@ -15,12 +15,12 @@ Our prediction successfully identified genes and pathways known to be associated
 >3. Run the R script, "Manuscript_Figures_Tables.r", from command line: R CMD BATCH Manuscript_Figures_Tables.r or, run the scripts in "Manuscript_Figures_Tables.r STEP BY STEP in R to generate the figures and tables in the manuscript.  <br />
 >4. The scripts has been tested successfully on R 4.0.2 <br />
 
-# Calcluate MIAS score
+# Calcluate the MIAS score
 Our analysis indicated that MIAS score can be a useful feature to build integrative machine-learning models for anti-PD1 response prediction. The following script help people to calculate the MIAS scores of the melanoma patient samples using their transcriptomic data.
 
-First, Install and load the require R packages
+First, Install and load the require R packages and scripts
 > library(GSVA) <br />
-> source("MHC_functions.r") <br />
+> source("./data/MHC_functions.r") <br />
 
 Second, load the selected SKCM signature genes for calculating MIAS scores (The signature genes were selected by integrative analysis of our MHC I-association prediction and TCGA SKCM transcriptomic data).
 > filein="./data/Table.S6_Immune_positive signature.xls"  <br />
