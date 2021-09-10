@@ -39,7 +39,7 @@ Our analysis indicated that MIAS score can be a useful feature to build integrat
 > print(ROC$AUC) 	<br />
 > print(Wilcox.pval) 	<br /> 
 
-You can use the calculated MIAS score to build up a model to predict patient response to anti-PD1 in melanoma
+You can use the calculated MIAS score to build up a model to predict patient response to anti-PD1 in melanoma.
 
 
 # Response prediciton using MIAS.IMPRES predictors
