@@ -20,7 +20,7 @@ Our analysis indicated that MIAS score can be a useful feature to build integrat
 
 1. Install and load the require R packages and scripts
 > library(GSVA) <br />
-> source("./data/MHC_functions.r") <br />
+> source("MHC_functions.r") <br />
 
 2. Load the selected SKCM signature genes for calculating MIAS scores (The signature genes were selected by integrative analysis of our MHC I-association prediction and TCGA SKCM transcriptomic data).
 > filein="./data/Table.S6_Immune_positive signature.xls"  <br />
@@ -53,7 +53,7 @@ We thus used the MIAS and <a href="https://www.nature.com/articles/s41591-019-06
 Install and load the require R packages
 > library(e1071)  #svm <br />
 > library(GSVA) <br />
-> source("./data/MHC_functions.r") <br />
+> source("MHC_functions.r") <br />
 
 Load the data file containing the 2 pre-trained predictors: MIAS.IMPRES.Classifier_Pre, and MIAS.IMPRES.Classifier_On.
 >load("./data/Response.Predictors_PD1_SKCM.RData") <br />
