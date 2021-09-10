@@ -71,14 +71,14 @@ We thus used the MIAS and IMPRES scores of the collected 411 melanoma samples as
 > MIAS_Score.On<-MIAS.Score.GSVA(DataM_EX.On,Signatures_M)  <br />
 > IMPRES_Score.On<-IMPRES.Score(DataM_EX.On)  <br />
 
-7. Do the response prediction of the on-treatment samples using the on-treatment predictor that were trained using both of MIAS and IMPRES scores (MIAS.IMPRES.Classifier_On).
+7. Response prediction of the on-treatment samples using the on-treatment predictor that were trained using both of MIAS and IMPRES scores (MIAS.IMPRES.Classifier_On).
 > data_set.On<-data.frame(MIAS=MIAS_Score.On,IMPRES=IMPRES_Score.On,Response=Response.On) <br />
 > prediction.On = predict(MIAS.IMPRES.Classifier_On, newdata = data_set.On[-3], probability =T)  <br />
 
 8. Print out the predicted patient response
 > print (prediction.On) <br />
 
-We can also do the response prediction of the pre-treatment samples using the pre-treatment predictor (the script was not listed here).
+We can also do the response prediction to the pre-treatment samples using the pre-treatment predictor, MIAS.IMPRES.Classifier_Pre (the script was not listed here).
 
 
 
