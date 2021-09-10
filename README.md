@@ -42,9 +42,9 @@ Our analysis indicated that MIAS score can be a useful feature to build integrat
 You can use the calculated MIAS score to build up a model to predict patient response to anti-PD1 in melanoma.
 
 
-# Response prediciton using MIAS.IMPRES predictors
+# Response prediciton for melanoma patient samples using MIAS.IMPRES predictors
 Our analysis also showed that the integration of the MIAS and <a href="https://www.nature.com/articles/s41591-019-0671-4">IMPRES</a> scores also have a better prediction performance than the two individual method (Fig. 6D in the manuscript). 
-We thus used the MIAS and IMPRES scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated SKCM patient samples. These two predictors can help people to predict responses of SKCM patient samples directly using their transcriptomic data.
+We thus used the MIAS and IMPRES scores of the collected 411 melanoma samples as the data fetures to train two predictors of anti-PD1 response using support vector machine (SVM) respectively for pre- and on-treated melanoma patient samples. These two predictors can help people to predict responses of SKCM patient samples directly using their transcriptomic data.
 
 1. Download the file "MIAS_SKCM.zip" from this site. After unzipping the "MIAS_SKCM.zip", navigate to the extension folder, "MIAS_SKCM", and set it as the working directory
 
