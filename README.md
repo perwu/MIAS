@@ -18,21 +18,32 @@ Our prediction successfully identified genes and pathways known to be associated
 # Calcluate the MIAS score
 Our analysis indicated that MIAS score can be a useful feature to build integrative machine-learning models for anti-PD1 response prediction. The following script help people to calculate the MIAS scores of the melanoma patient samples using their transcriptomic data.
 
-First, Install and load the require R packages and scripts
+1. Install and load the require R packages and scripts
 > library(GSVA) <br />
 > source("./data/MHC_functions.r") <br />
 
-Second, load the selected SKCM signature genes for calculating MIAS scores (The signature genes were selected by integrative analysis of our MHC I-association prediction and TCGA SKCM transcriptomic data).
+2. Load the selected SKCM signature genes for calculating MIAS scores (The signature genes were selected by integrative analysis of our MHC I-association prediction and TCGA SKCM transcriptomic data).
 > filein="./data/Table.S6_Immune_positive signature.xls"  <br />
 > DataM1 <- read.table(filein,sep="\t",header=T, quote="") <br />
 > Signatures_M<-NULL  <br />
 > Signatures_M[[1]]=as.character(DataM1[[1]])  <br />
 
-Third, load the gene expressio data of the melanoma patient samples for response prediction. The gene expression value should be calucated as transcripts per million (TPM) that normalize counts for library size and gene length. Here, an example dataset (<a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded.
+3. load the gene expressio data of the melanoma patient samples for response prediction. The gene expression value should be calucated as transcripts per million (TPM) that normalize counts for library size and gene length. Here, an example dataset (complied from <a href="https://www.cell.com/cell/comments/S0092-8674(17)31122-4">Riaz, et al 2017</a>) was loaded. This data set contains a gene expression matrix od patient samples (DataM_EX), patient response (Response), biopsy timepoint (PreOn).
 > load("./data/Example.Data_Riaz.2017.RData")	<br />
 
-Forth, the MIAS scores of samples can be calculated using the signature (Signatures_M) and the gene expresison matrix (DataM_EX )
+4. the MIAS scores of samples can be calculated using the signature (Signatures_M) and the gene expresison matrix (DataM_EX )
 > MIAS_Score.Pre<-MIAS.Score.GSVA(DataM_EX,Signatures_M)  <br />
+
+5. Quantify the predictive power of the MIAS score using the AUC value of the ROC curve and Wilcox test
+> outcome=rep(1,length(MIAS_Score)) <br />
+> outcome[which(Response=="NR")]=0 	<br />
+> ROC<-ROCF(outcome,MIAS_Score) 	<br />
+> score.pos<-MIAS_Score[which(Response=="R")] 	<br />
+> score.neg<-MIAS_Score[which(Response=="NR")] 	<br />
+> Wilcox.pval<-as.numeric(wilcox.test(score.pos, score.neg, alternative="greater")$p.value) 	<br />
+> print(ROC$AUC) 	<br />
+> print(Wilcox.pval) 	<br />
+
 
 
 # Response prediciton using MIAS.IMPRES predictors
